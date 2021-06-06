@@ -13,8 +13,14 @@
       <pubDate>Sun, 06 Jun 2021 12:57:38 +0200</pubDate>
       
       <guid>http://example.org/posts/mytest/</guid>
-      <description>this is a text
-lol</description>
+      <description>
+        
+          &lt;p&gt;this is a text&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;lol&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>
