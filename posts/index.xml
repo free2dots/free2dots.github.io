@@ -4,11 +4,16 @@
         <link>https://free2dots.github.io/posts/</link>
         <description>All Posts | Free2Dots</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</lastBuildDate><atom:link href="https://free2dots.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Mytest - oo</title>
+    <title>WIP: Still figuring out HUGO</title>
     <link>https://free2dots.github.io/posts/mytest/</link>
     <pubDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</pubDate>
     <author>Author</author>
     <guid>https://free2dots.github.io/posts/mytest/</guid>
-    <description><![CDATA[Mods In school writing essays is almost exclusive related to/and about English literature. Topics like: symbolism in Dickens, rather than the role of color in fashion. This was due, according to Graham, to how the writing and the literature were introduced in high school (of course he talks about American educational system). Regardless of its origin, the output of the unification of literature and composition is asking students to imitate what English professors have published in journals years before.]]></description>
+    <description><![CDATA[This is a temporary page, since I am quite new to blogging with HUGO
+I have been using Jekyll, but I am switching. Why?
+Well, it looks a bit too cumbersome. Security updates are sometimes not compatible with github-pages, I don&rsquo;t like the current layout, I wanted a dark and white mode.
+I wanted a change.
+Let&rsquo;s change, then.
+#tantecarecose]]></description>
 </item></channel>
 </rss>
