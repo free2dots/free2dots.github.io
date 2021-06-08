@@ -5,15 +5,11 @@
         <description>hugo - Tag - Free2Dots</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</lastBuildDate><atom:link href="https://free2dots.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>WIP: Still figuring out HUGO</title>
-    <link>https://free2dots.github.io/posts/mytest/</link>
+    <link>https://free2dots.github.io/posts/2021-06-08/2021-06-08-wip/</link>
     <pubDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</pubDate>
     <author>Author</author>
-    <guid>https://free2dots.github.io/posts/mytest/</guid>
-    <description><![CDATA[This is a temporary page, since I am quite new to blogging with HUGO.
-I have been using Jekyll, but I am switching. Why?
-Well, it looks a bit too cumbersome. Security updates are sometimes not compatible with github-pages, I don&rsquo;t like the current layout, I wanted a dark and white mode.
-I wanted a change.
-Let&rsquo;s change, then.
-#tantecarecose]]></description>
+    <guid>https://free2dots.github.io/posts/2021-06-08/2021-06-08-wip/</guid>
+    <description><![CDATA[<p>This is a temporary page, since I am quite new to blogging with HUGO.</p>
+<p>I have been using Jekyll, but I am switching. Why?</p>]]></description>
 </item></channel>
 </rss>
