@@ -3,13 +3,15 @@
         <title>All Posts - Free2Dots</title>
         <link>https://free2dots.github.io/posts/</link>
         <description>All Posts | Free2Dots</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</lastBuildDate><atom:link href="https://free2dots.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>🚧️ WIP: Still figuring out HUGO</title>
-    <link>https://free2dots.github.io/posts/2021-06-08/</link>
-    <pubDate>Sun, 06 Jun 2021 12:57:38 &#43;0200</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 16 Jun 2021 12:00:38 &#43;0200</lastBuildDate><atom:link href="https://free2dots.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Dr. Jekyll and Mr. Hugo</title>
+    <link>https://free2dots.github.io/posts/2021-06-16/</link>
+    <pubDate>Wed, 16 Jun 2021 12:00:38 &#43;0200</pubDate>
     <author>Author</author>
-    <guid>https://free2dots.github.io/posts/2021-06-08/</guid>
-    <description><![CDATA[<p>This is a temporary page, since I am quite new to blogging with HUGO.</p>
-<p>I have been using Jekyll, but I am switching. Why?</p>]]></description>
+    <guid>https://free2dots.github.io/posts/2021-06-16/</guid>
+    <description><![CDATA[<p>Welcome to the new iteration of my blog!<br>
+&ldquo;Wait, what?! Does it mean there are <strong>other</strong> versions of this thing?&rdquo;<br>
+I am glad you are so interested, dear reader!<br>
+&ldquo;Not really&hellip; But, please, continue&hellip;&rdquo;</p>]]></description>
 </item></channel>
 </rss>
