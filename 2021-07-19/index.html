@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>Blogging with Hugo | </title><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://free2dots.github.io/2021-07-19/2021-06-19-header.png"/>
+<meta name="twitter:title" content="Blogging with Hugo"/>
+<meta name="twitter:description" content=""/><meta name="twitter:creator" content="@GianfQED"/><meta name="Description" content="Connecting dots..."><meta property="og:title" content="Blogging with Hugo" />
+<meta property="og:description" content="While you code, you should comment and document what you are doing.
+Boring, isn&rsquo;t is?
+But it actually helps a future developer, usually you after three days, to understand what you did and to start modifying and integrating your script.
+So, dear future me, this is How I Built Your Blog!
+OverviewIn a previous post I described my thought process while choosing the framework for the website. Now, let&rsquo;s understand the basics of a hugo website, so we can start blogging right away!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://free2dots.github.io/2021-07-19/" /><meta property="og:image" content="https://free2dots.github.io/2021-07-19/2021-06-19-header.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-19T12:10:04&#43;02:00" />
+<meta property="article:modified_time" content="2021-07-19T12:10:04&#43;02:00" />
+
+<meta name="application-name" content="Free2Dots">
+<meta name="apple-mobile-web-app-title" content="Free2Dots"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://free2dots.github.io/2021-07-19/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/lib/prismjs/prism.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Blogging with Hugo",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/free2dots.github.io\/2021-07-19\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/free2dots.github.io\/2021-07-19\/2021-06-19-header.png",
+                            "width":  1378 ,
+                            "height":  536 
+                        }],"genre": "posts","keywords": "hugo, how to","wordCount":  1915 ,
+        "url": "https:\/\/free2dots.github.io\/2021-07-19\/","datePublished": "2021-07-19T12:10:04+02:00","dateModified": "2021-07-19T12:10:04+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Free2Dots" class="header-logo logo-svg"><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>Free2Dots</a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/posts/"> Posts </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> Tags </a>
+                        </li><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="Free2Dots" class="header-logo"><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>Free2Dots</a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/posts/" title="">Posts</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">Tags</a>
+                        </li><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+<div class="container content-article page-toc theme-classic"><div class="toc" id="toc-auto">
+            <div class="toc-title">Contents</div>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div>
+
+    
+    
+    <article>
+    
+
+        <header class="header-post">
+
+            
+
+            
+            <div class="post-title">
+
+                    <div class="post-all-meta">
+                        <nav class="breadcrumbs">
+    <ol>
+        <li><a href="/">Home </a></li><li>Blogging with Hugo</li>
+    </ol>
+</nav>
+                        <h1 class="single-title flipInX">Blogging with Hugo</h1><div class="post-meta summary-post-meta"><span class="post-meta-date meta-item">
+                                <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-07-19">2021-07-19</time>
+                            </span><span class="post-meta-words meta-item">
+                                <span class="svg-icon icon-pencil"></span>1915 words
+                            </span>
+                            <span class="post-meta-reading meta-item">
+                                <span class="svg-icon icon-stopwatch"></span>9 minutes
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </header>
+
+        <div class="article-post toc-start">
+
+            <div class="content-block content-block-first content-block-position">
+
+                <div class="post single"><div class="image-theme-classic">
+                        <img src="https://free2dots.github.io/2021-07-19/2021-06-19-header.png" style="width: 100%">
+                    </div><div class="details toc" id="toc-static"  data-kept="">
+                        <div class="details-summary toc-title">
+                            <span>Contents</span>
+                        </div>
+                        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#minimum-viable-blog">Minimum Viable Blog</a>
+      <ul>
+        <li><a href="#set-up">Set up</a></li>
+        <li><a href="#creating-the-blog">Creating the blog</a></li>
+      </ul>
+    </li>
+    <li><a href="#not-so-minimal-blog">Not-so-minimal blog</a>
+      <ul>
+        <li><a href="#first-changes">First changes</a></li>
+        <li><a href="#search-bar">Search bar</a></li>
+        <li><a href="#the-bruce-banner">The (Bruce) Banner</a></li>
+        <li><a href="#descending-order">Descending order</a></li>
+        <li><a href="#comments">Comments</a></li>
+        <li><a href="#not-so-minor-tweaks">(Not so) minor tweaks</a>
+          <ul>
+            <li><a href="#whats-wrong-with-line-numbers">What&rsquo;s wrong with line numbers?!</a></li>
+            <li><a href="#tabs-tabs-everywhere">Tabs, tabs everywhere&hellip;</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#getting-posts-done">Getting posts done</a></li>
+    <li><a href="#bonus-track-gitlab-version">Bonus track: GitLab version</a></li>
+  </ul>
+</nav></div>
+                    </div><p>While you code, you should comment and document what you are doing.</p>
+<p>Boring, isn&rsquo;t is?</p>
+<p>But it actually helps a future developer, usually <strong>you</strong> after three days, to understand what you did  and to start modifying and integrating your script.</p>
+<p>So, <em>dear future me</em>, this is How I Built Your Blog!</p>
+<!-- more -->
+<h2 id="overview" class="headerLink"><a href="#overview" class="header-mark"></a>Overview</h2><p>In a <a href="../2021-06-16" rel="">previous post</a> I described my thought process while choosing the framework for the website. Now, let&rsquo;s understand the basics of a hugo website, so we can start blogging right away!</p>
+<p>The folder structure of a blank Hugo project looks like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">blog_bubu/
+├── archetypes/
+│   └── default.md
+├── config.toml
+├── content/
+│   ├── post1.md
+│   └── post2.md
+├── data/
+├── layouts/
+├── public/
+├── static/
+└── themes/
+</code></pre></div><ol>
+<li><code>config.toml</code> is the brain of the blog, where we will set the title of the website, enable the features we want to use, our social URLs and so on;</li>
+<li><code>content</code> is the folder that will contain the posts or pages we write in <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank" rel="noopener noreffer">Markdown</a>, and that will be rendered in HTML;</li>
+<li><code>themes</code> is the folder in which we will download the theme we like, or you can create a completely custom theme with time and knowledge available;</li>
+<li><code>layouts</code> is a folder used to override the files used in the theme previously picked. Like in Jekyll, you have your (my) <em>maybe-it-can-work</em> customization away from a working theme, and you can go back simply deleting its content.</li>
+<li><code>public</code> is the folder with the rendered HTML files.</li>
+</ol>
+<p>There is a ton more about <strong>Hugo</strong> that you can find in the <a href="https://gohugo.io/documentation/" target="_blank" rel="noopener noreffer">documentation</a>), but I am a huge fan of <a href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank" rel="noopener noreffer">Pareto principle</a>:</p>
+<blockquote>
+<p>80% consequences from 20% causes.</p>
+</blockquote>
+<p>I used to read too much  the documentation  of software I needed to use, but I realized I often lost the focus on what was important: <strong>using the software</strong> rather than <strong>knowing the software</strong>.</p>
+<p>So, my new mantra while approaching new things is to have a <em>mental framework</em> on how things are supposed to work, learn the (not-so-)bare <em>minimum</em> of what is necessary and start <em>doing</em>. Once I need more advanced features, I go back to the documentation and improve/modify my previous knowledge.</p>
+<p>This is particularly true in this project: I want a functional blog, without super-fancy things. But, as you will see later, I decided to add functionalities that required a bit of search.</p>
+<p>The last piece of theoretical framework we need is how to organize our workspace. We will need two repositories: our main folder <code>blog_bubu</code> with drafts and configs, and the <code>public</code> folder as a separate submodule.</p>
+<p>Including the repository of the theme, we will keep track of these three folders:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">blog_bubu/   <span class="c1"># our main folder called MAIN_REPO</span>
+│
+..
+├── public/  <span class="c1"># our submodule called PUBLIC_REPO</span>
+└── themes/  <span class="c1"># external submodule THEME_REPO</span>
+</code></pre></div><p>Now, let&rsquo;s build our first MVB, Minimum Viable Blog!</p>
+<p>And if you want to follow along, go and find a <a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreffer">theme</a> you like. It might take more than you expect! 😉</p>
+<p>
+<p style="text-align: center;">
+  <img style="width:95%" src="dance.gif" alt="dance_gif">
+</p>
+</p>
+<h2 id="minimum-viable-blog" class="headerLink"><a href="#minimum-viable-blog" class="header-mark"></a>Minimum Viable Blog</h2><h3 id="set-up" class="headerLink"><a href="#set-up" class="header-mark"></a>Set up</h3><p>Let&rsquo;s remind ourselves the <strong>goal</strong>:</p>
+<blockquote>
+<p>a blog hosted on GitHub Pages <code>https://&lt;yourGitHubUsername&gt;.github.io</code></p>
+</blockquote>
+<p>and see the list of what we need:</p>
+<ul>
+<li>An empty private GitHub repository for <code>blog_bubu</code></li>
+<li>Public repository <code>&lt;yourGitHubUsername&gt;.github.io</code> with at least 1 commit like an empty <code>README.md</code> (to add it as submodule, not need for GitLab)</li>
+<li>A theme, in my case <a href="link" rel="">uBlogger</a>. The features I like of this theme are
+<ul>
+<li>Light/Dark mode</li>
+<li>Search Bar</li>
+<li>Minimal design</li>
+</ul>
+</li>
+<li>The <code>go</code> language installed on you local machine</li>
+<li>The <code>hugo</code> framework</li>
+<li>Something we want to share (and the time to write it 🤦)</li>
+</ul>
+<p>I assume that you had no problem in completing the first three tasks.</p>
+<p>Now let&rsquo;s install <code>go</code> and <code>hugo</code>. For my operating system, an Ubuntu-like distro, the commands are pretty easy</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install go-golang
+
+<span class="c1">## Uncomment the following line if you don&#39;t have HomeBrew installed:</span>
+<span class="c1"># /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34;</span>
+brew install hugo 
+</code></pre></div><p>For more information about <a href="https://brew.sh/" target="_blank" rel="noopener noreffer">HomeBrew</a> for Linux, you can find here the <a href="https://docs.brew.sh/Homebrew-on-Linux" target="_blank" rel="noopener noreffer">documentation</a>.</p>
+<p><strong>Tasks completed!</strong></p>
+<h3 id="creating-the-blog" class="headerLink"><a href="#creating-the-blog" class="header-mark"></a>Creating the blog</h3><p>Now that everything is ready, let&rsquo;s build the actual blog.</p>
+<p>First we need to create our main folder:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site &lt;site_folder&gt;
+</code></pre></div><p><strong>Inside</strong> <code>&lt;site_folder&gt;</code> you should find the following structure:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">.
+├── archetypes/
+│   └── default.md
+├── config.toml
+├── content/
+├── data/
+├── layouts/
+├── static/
+└── themes/
+</code></pre></div><p>Now let&rsquo;s link our private repository with the remote repository:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># we are inside &lt;site_folder&gt;</span>
+git init
+git remote add origin &lt;MAIN_REPO&gt;.git
+git add .
+git commit -m <span class="s2">&#34;initialized repo&#34;</span>
+git push -u origin master 
+</code></pre></div><p>We add the theme now, in my case:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git submodule add https://github.com/upagge/uBlogger.git themes/uBlogger
+</code></pre></div><p>and finally, we can render our website with <code>hugo server -D</code> and check the output in a browser at the address <code>localhost:1313</code>.</p>
+<p>At the moment it is empty. We need to add at least two more things:</p>
+<ul>
+<li>Edit the <code>config.toml</code></li>
+<li>Add a new post</li>
+</ul>
+<p>For the <strong>configuration file</strong> I started with the theoretical minimum:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://&lt;YOUR_USERNAME&gt;.github.io&#34;</span>
+<span class="c"># [en, zh-cn, fr, ...] determines default content language</span>
+<span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s2">&#34;en&#34;</span>
+<span class="c"># language code</span>
+<span class="nx">languageCode</span> <span class="p">=</span> <span class="s2">&#34;en&#34;</span>
+<span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;Blog Bubu&#34;</span>
+
+<span class="c"># Change the default theme to be use when building the site with Hugo</span>
+<span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;uBlogger&#34;</span>
+
+<span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+  <span class="c"># uBlogger theme version</span>
+  <span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;2.0.X&#34;</span>
+
+<span class="p">[</span><span class="nx">menu</span><span class="p">]</span>
+  <span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+    <span class="nx">identifier</span> <span class="p">=</span> <span class="s2">&#34;posts&#34;</span>
+    <span class="c"># you can add extra information before the name (HTML format is supported), such as icons</span>
+    <span class="nx">pre</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="c"># you can add extra information after the name (HTML format is supported), such as icons</span>
+    <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;Posts&#34;</span>
+    <span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;/posts/&#34;</span>
+    <span class="c"># title will be shown when you hover on this menu link</span>
+    <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="nx">weight</span> <span class="p">=</span> <span class="mi">1</span>
+  <span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
+    <span class="nx">identifier</span> <span class="p">=</span> <span class="s2">&#34;about&#34;</span>
+    <span class="nx">pre</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;About&#34;</span>
+    <span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;/About/&#34;</span>
+    <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="nx">weight</span> <span class="p">=</span> <span class="mi">2</span>
+
+<span class="c"># Markup related configuration in Hugo</span>
+<span class="p">[</span><span class="nx">markup</span><span class="p">]</span>
+  <span class="c"># Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)</span>
+  <span class="p">[</span><span class="nx">markup</span><span class="p">.</span><span class="nx">highlight</span><span class="p">]</span>
+    <span class="c"># false is a necessary configuration</span>
+    <span class="nx">noClasses</span> <span class="p">=</span> <span class="kc">false</span>
+</code></pre></div><p>For the new post, you can use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new posts/test.md
+</code></pre></div><p>that will create a file <code>.md</code> in <code>content/posts/</code> named <code>test.md</code> with this content:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">---
+title: &#34;Lol&#34;
+date: 2021-06-28T22:18:01+02:00
+draft: true
+---
+
+</code></pre></div><p>Of course, you can create the same file in any other way and it works just fine.<br>
+You add your content and the you are ready to publish it on GitHub. <strong>How?</strong></p>
+<p>First you add the <code>PUBLIC_REPO</code> as submodule:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule add -b main &lt;PUBLIC_REPO&gt;.git public
+</code></pre></div><p>(I am assuming that the repo <code>bubu.github.io</code> has as protected branch <code>main</code> and not <code>master</code> and has at least 1 commit).</p>
+<p>Once also this repo is set up, <a href="https://ryan-schachte.com/2020/12/21/hugo_cmd/" target="_blank" rel="noopener noreffer">Ryan Schachte</a> has the solution for deploying the website:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="c1"># If a command fails then the deploy stops</span>
+<span class="nb">set</span> -e
+
+<span class="nb">printf</span> <span class="s2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m\n&#34;</span>
+
+<span class="c1"># Build the project.</span>
+hugo -t uBlogger <span class="c1"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
+
+<span class="c1"># Go To Public folder</span>
+<span class="nb">cd</span> public
+
+<span class="c1"># Add changes to git.</span>
+git add .
+
+<span class="c1"># Commit changes.</span>
+<span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;rebuilding site </span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&#34;</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$*</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+	<span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$*</span><span class="s2">&#34;</span>
+<span class="k">fi</span>
+git commit -m <span class="s2">&#34;</span><span class="nv">$msg</span><span class="s2">&#34;</span>
+
+<span class="c1"># Push source and build repos.</span>
+git push origin main
+</code></pre></div><p><strong>But, J.! You are following the quickstart guide from XYZ&hellip;</strong><br>
+You are right, Young Padawan!</p>
+<p>In fact the linear part stops here!</p>
+<h2 id="not-so-minimal-blog" class="headerLink"><a href="#not-so-minimal-blog" class="header-mark"></a>Not-so-minimal blog</h2><p>Once I got familiar with the structure of the blog, I decided to add some features:</p>
+<ul>
+<li>the social banner on the homepage, like in the demo
+
+<p style="text-align: center;">
+  <img style="width:95%" src="banner.png" alt="image">
+</p>
+</li>
+<li>a search bar;</li>
+<li>a header image for each post;</li>
+<li>and a comment section.</li>
+</ul>
+<p>So, to start with something already working, I used the <code>config.toml</code> file
+already provided with the theme in the <code>exampleSite/</code> folder.</p>
+<h3 id="first-changes" class="headerLink"><a href="#first-changes" class="header-mark"></a>First changes</h3><p>In the first few lines I changed the <strong>url</strong> and the <strong>title</strong> of the blog.</p>
+<p>I set the <code>enabelGitInfo = false</code></p>
+<p>And, as I said, I wanted the <em>social banner</em>: so I added the <strong>username</strong> of the various
+social platform I have in the section of the configuration file <code>[languages.en.social.params]</code></p>
+<p>So far so good.</p>
+<h3 id="search-bar" class="headerLink"><a href="#search-bar" class="header-mark"></a>Search bar</h3><p>This theme comes with the support of two search engines (kind of).
+<strong>Lunr</strong>, offline and based on a <code>json</code> file you create with <code>hugo -t uBlogger</code>; and <strong>Algolia</strong>, which is still unclear to me what is.</p>
+<p>Guess what I opted for&hellip;</p>
+<p>As a remainder for myself, you need this part of the <code>config.toml</code> to generate the <code>json</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[outputs]
+  home = [&#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;]
+</code></pre></div><h3 id="the-bruce-banner" class="headerLink"><a href="#the-bruce-banner" class="header-mark"></a>The (Bruce) Banner</h3><p>Following the Pareto principle, I had a look at the folder structure of the example site.</p>
+<p>The posts with the banner have the following structure: in <code>content/posts/</code> you create a new folder
+<code>2021-07-05</code> where you put a markdown file <code>index.md</code>. You can do that in Bash or with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new posts/2021-07-05/index.md
+</code></pre></div><p>The <code>index.md</code> file has the following preamble:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">---
+title: &#34;Blogging with Hugo&#34;
+date: 2021-07-05T12:10:04+02:00
+tags: 
+  - &#34;hugo&#34;
+  - &#34;how to&#34;
+resources:
+  - name: &#34;featured-image&#34;
+    src: &#34;name_image.png&#34;
+---
+</code></pre></div><h3 id="descending-order" class="headerLink"><a href="#descending-order" class="header-mark"></a>Descending order</h3><p>Something that didn&rsquo;t come up until I tried to write this post:</p>
+<blockquote>
+<p>the posts in the homepage were in <strong>ascending</strong> order&hellip;</p>
+</blockquote>
+<p>
+  <figure style="text-align: center;">
+    <img style="width:85%" src="order.gif" alt="order">
+    <figcaption style="text-align:center"><i>My face was more reddish than Mr. John Bercow!</i></figcaption>
+  </figure>
+</p>
+<p>I guess it is because this posts are actually pages for hugo.</p>
+<p>In any case, the solution was quite easy at the end. We can exploit the overriding feature of the <code>layouts</code> folder.</p>
+<p>I just copied the <code>index.html</code> file from the theme with</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cp theme/uBlogger/layout/index.html layouts/index.html
+</code></pre></div><p>and added the <code>.Reverse</code> instruction to the <code>range $pages.Pages</code> in the <code>{{- /* Posts */ -}}</code> section:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{{- range $pages.Pages.Reverse -}}
+</code></pre></div><h3 id="comments" class="headerLink"><a href="#comments" class="header-mark"></a>Comments</h3><p>The last thing that I wanted for a functional blog was <strong>having comments</strong>.</p>
+<p>I wasn&rsquo;t sold to Disquis, because in its dashboard I couldn&rsquo;t see the comments. Not sure if it is related to using a static
+website with hugo, or my free plan.</p>
+<p>I decided to use <a href="https://core.telegram.org/widgets/discussion" target="_blank" rel="noopener noreffer">Telegram</a>.
+The <code>config.toml</code> already has the option to handle comments with Telegram, so I just added my User-ID.</p>
+<h3 id="not-so-minor-tweaks" class="headerLink"><a href="#not-so-minor-tweaks" class="header-mark"></a>(Not so) minor tweaks</h3><p>At this point the blog works. I like how it looks, and it seems easy to mantain.</p>
+<p>So, we are ok, right?</p>
+<p><strong>NO</strong>.</p>
+<h4 id="whats-wrong-with-line-numbers" class="headerLink"><a href="#whats-wrong-with-line-numbers" class="header-mark"></a>What&rsquo;s wrong with line numbers?!</h4><p>I don&rsquo;t like the <a href="https://ublogger.netlify.app" target="_blank" rel="noopener noreffer">uBlogger</a> way of highligting codes.</p>
+<p>Why aren&rsquo;t line numbers aligned????</p>
+<p>Easy fix in the <code>config.toml</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+</code></pre></div><p>And here&rsquo;s the difference:
+
+  <figure style="text-align: center;">
+    <img style="width:85%" src="code_comparison.png" alt="comparison">
+    <figcaption style="text-align:center"><i>Left uBlogger/right Free2dots</i></figcaption>
+  </figure>
+</p>
+<h4 id="tabs-tabs-everywhere" class="headerLink"><a href="#tabs-tabs-everywhere" class="header-mark"></a>Tabs, tabs everywhere&hellip;</h4><p>One thing I noticed while testing my blog was quite annoying.</p>
+<p>Each time I clicked on a post, a new tab opened.</p>
+<p>Now, my muscle memory does not appreciate this feature: I want to go back to the previous page with
+my mouse or shortcuts, and, if  I am on a new tab, I don&rsquo;t have a previous page.</p>
+<p>Moreover I plan to add several posts here. Imagine looking for something, and each time a new tab&hellip;</p>
+<p>After a bit of <strong>JFGI</strong> (see this old <a href="../2021-06-16" rel="">post</a> for reference), here&rsquo;s the solution:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cp theme/uBlogger/layouts/summary.html layouts/summary.html
+</code></pre></div><p>and remove the <code>target=&quot;_blank&quot;</code>, which enables the opening of a new tab.</p>
+<h2 id="getting-posts-done" class="headerLink"><a href="#getting-posts-done" class="header-mark"></a>Getting posts done</h2><p>Everything is set up. But the difficult part starts <strong>now</strong>.</p>
+<p>Writing this post took ages, but I really enjoyed it.
+I have also a lot of ideas and things I like I want to share.</p>
+<p>The system is to write two posts per month. It seams reasonable for a person who usually doesn&rsquo;t like writing.</p>
+<p><strong>So, let&rsquo;s see in the next post</strong>!</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">#tantecarecose
+</code></pre></div><h2 id="bonus-track-gitlab-version" class="headerLink"><a href="#bonus-track-gitlab-version" class="header-mark"></a>Bonus track: GitLab version</h2><p>In order to host a hugo website on GitLab, you don&rsquo;t need the public folder as a submodule.</p>
+<p>You add the <code>.gitlab-ci.yml</code> file in your main repository, with the following content:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.gitlab.com/pages/hugo:latest</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">variables</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">GIT_SUBMODULE_STRATEGY</span><span class="p">:</span><span class="w"> </span><span class="l">recursive</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">pages</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">hugo</span><span class="w">
+</span><span class="w">  </span><span class="nt">artifacts</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="l">public</span><span class="w">
+</span><span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">master</span><span class="w">
+</span></code></pre></div><p>Once you push a new commit, GitLab will launch a job that will create the blog and post it online.</p>
+<p>The building time is negligible with respect to the Jekyll version.</p>
+</div><footer>
+                        <div class="post">
+
+
+<div class="post-share"><div class="share-link">
+        <a class="share-icon share-twitter" href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://free2dots.github.io/2021-07-19/" data-title="Blogging with Hugo" data-via="GianfQED" data-hashtags="hugo,how to"><span class="svg-social-icon icon-twitter"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-facebook" href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://free2dots.github.io/2021-07-19/" data-hashtag="hugo"><span class="svg-social-icon icon-facebook"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-linkedin" href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://free2dots.github.io/2021-07-19/"><span class="svg-social-icon icon-linkedin"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-reddit" href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://free2dots.github.io/2021-07-19/"><span class="svg-social-icon icon-reddit"></span></a>
+    </div></div>
+
+
+
+
+
+
+<div class="post-tags"><a href="/tags/hugo/" class="tag">hugo</a><a href="/tags/how-to/" class="tag">how to</a></div></div>
+                </footer></div>
+
+        <div id="toc-final"></div>
+        </div>
+
+    
+    </article>
+    <section class="page single comments content-block-position">
+        <h1 class="display-hidden">Комментарии</h1><div id="comments"><div id="telegram-comments" class="comment"></div><script src="https://comments.app/js/widget.js?3"  data-comments-app-website="FgNBOjuR" data-limit="5" data-colorful="1"></script>
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://comments.app/">Telegram Comments</a>.
+            </noscript></div></section></div>
+
+</main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://free2dots.github.io&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><script src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/prismjs/prism.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script>
+                window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+                gtag('config', 'G-PPLKH2WEK1', { 'anonymize_ip': true });
+            </script><script src="https://www.googletagmanager.com/gtag/js?id=G-PPLKH2WEK1" async></script></body>
+</html>
