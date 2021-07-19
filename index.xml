@@ -6,16 +6,6 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 19 Jul 2021 12:10:04 &#43;0200</lastBuildDate>
             <atom:link href="https://free2dots.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Dr. Jekyll and Mr. Hugo</title>
-    <link>https://free2dots.github.io/2021-06-16/</link>
-    <pubDate>Wed, 16 Jun 2021 12:00:38 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://free2dots.github.io/2021-06-16/</guid>
-    <description><![CDATA[<p>Welcome to the new iteration of my blog!<br>
-&ldquo;Wait, what?! Does it mean there are <strong>other</strong> versions of this thing?&rdquo;<br>
-I am glad you are so interested, dear reader!<br>
-&ldquo;Not really&hellip; But, please, continue&hellip;&rdquo;</p>]]></description>
-</item><item>
     <title>Blogging with Hugo</title>
     <link>https://free2dots.github.io/2021-07-19/</link>
     <pubDate>Mon, 19 Jul 2021 12:10:04 &#43;0200</pubDate>
@@ -26,5 +16,15 @@ Boring, isn&rsquo;t is?
 But it actually helps a future developer, usually you after three days, to understand what you did and to start modifying and integrating your script.
 So, dear future me, this is How I Built Your Blog!
 OverviewIn a previous post I described my thought process while choosing the framework for the website. Now, let&rsquo;s understand the basics of a hugo website, so we can start blogging right away!]]></description>
+</item><item>
+    <title>Dr. Jekyll and Mr. Hugo</title>
+    <link>https://free2dots.github.io/2021-06-16/</link>
+    <pubDate>Wed, 16 Jun 2021 12:00:38 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://free2dots.github.io/2021-06-16/</guid>
+    <description><![CDATA[<p>Welcome to the new iteration of my blog!<br>
+&ldquo;Wait, what?! Does it mean there are <strong>other</strong> versions of this thing?&rdquo;<br>
+I am glad you are so interested, dear reader!<br>
+&ldquo;Not really&hellip; But, please, continue&hellip;&rdquo;</p>]]></description>
 </item></channel>
 </rss>
