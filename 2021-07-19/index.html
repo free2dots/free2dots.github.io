@@ -8,9 +8,8 @@
 <meta name="twitter:description" content=""/><meta name="twitter:creator" content="@GianfQED"/><meta name="Description" content="Connecting dots..."><meta property="og:title" content="Blogging with Hugo" />
 <meta property="og:description" content="While you code, you should comment and document what you are doing.
 Boring, isn&rsquo;t is?
-But it actually helps a future developer, usually you after three days, to understand what you did and to start modifying and integrating your script.
-So, dear future me, this is How I Built Your Blog!
-OverviewIn a previous post I described my thought process while choosing the framework for the website. Now, let&rsquo;s understand the basics of a hugo website, so we can start blogging right away!" />
+But it actually helps a future developer, usually you after three days, to understand what you did  and to start modifying and integrating your script.
+So, dear future me, this is How I Built Your Blog!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://free2dots.github.io/2021-07-19/" /><meta property="og:image" content="https://free2dots.github.io/2021-07-19/2021-06-19-header.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-19T12:10:04&#43;02:00" />
@@ -31,7 +30,7 @@ OverviewIn a previous post I described my thought process while choosing the fra
                             "url": "https:\/\/free2dots.github.io\/2021-07-19\/2021-06-19-header.png",
                             "width":  1378 ,
                             "height":  536 
-                        }],"genre": "posts","keywords": "hugo, how to","wordCount":  1915 ,
+                        }],"genre": "posts","keywords": "hugo, how to","wordCount":  1983 ,
         "url": "https:\/\/free2dots.github.io\/2021-07-19\/","datePublished": "2021-07-19T12:10:04+02:00","dateModified": "2021-07-19T12:10:04+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
     }
     </script></head>
@@ -141,10 +140,10 @@ OverviewIn a previous post I described my thought process while choosing the fra
                         <h1 class="single-title flipInX">Blogging with Hugo</h1><div class="post-meta summary-post-meta"><span class="post-meta-date meta-item">
                                 <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-07-19">2021-07-19</time>
                             </span><span class="post-meta-words meta-item">
-                                <span class="svg-icon icon-pencil"></span>1915 words
+                                <span class="svg-icon icon-pencil"></span>1983 words
                             </span>
                             <span class="post-meta-reading meta-item">
-                                <span class="svg-icon icon-stopwatch"></span>9 minutes
+                                <span class="svg-icon icon-stopwatch"></span>10 minutes
                             </span>
                         </div>
 
@@ -178,7 +177,11 @@ OverviewIn a previous post I described my thought process while choosing the fra
         <li><a href="#first-changes">First changes</a></li>
         <li><a href="#search-bar">Search bar</a></li>
         <li><a href="#the-bruce-banner">The (Bruce) Banner</a></li>
-        <li><a href="#descending-order">Descending order</a></li>
+        <li><a href="#descending-order">Descending order</a>
+          <ul>
+            <li><a href="#important-edit">Important EDIT</a></li>
+          </ul>
+        </li>
         <li><a href="#comments">Comments</a></li>
         <li><a href="#not-so-minor-tweaks">(Not so) minor tweaks</a>
           <ul>
@@ -196,7 +199,6 @@ OverviewIn a previous post I described my thought process while choosing the fra
 <p>Boring, isn&rsquo;t is?</p>
 <p>But it actually helps a future developer, usually <strong>you</strong> after three days, to understand what you did  and to start modifying and integrating your script.</p>
 <p>So, <em>dear future me</em>, this is How I Built Your Blog!</p>
-<!-- more -->
 <h2 id="overview" class="headerLink"><a href="#overview" class="header-mark"></a>Overview</h2><p>In a <a href="../2021-06-16" rel="">previous post</a> I described my thought process while choosing the framework for the website. Now, let&rsquo;s understand the basics of a hugo website, so we can start blogging right away!</p>
 <p>The folder structure of a blank Hugo project looks like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">blog_bubu/
@@ -436,7 +438,16 @@ resources:
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cp theme/uBlogger/layout/index.html layouts/index.html
 </code></pre></div><p>and added the <code>.Reverse</code> instruction to the <code>range $pages.Pages</code> in the <code>{{- /* Posts */ -}}</code> section:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{{- range $pages.Pages.Reverse -}}
-</code></pre></div><h3 id="comments" class="headerLink"><a href="#comments" class="header-mark"></a>Comments</h3><p>The last thing that I wanted for a functional blog was <strong>having comments</strong>.</p>
+</code></pre></div><h4 id="important-edit" class="headerLink"><a href="#important-edit" class="header-mark"></a>Important EDIT</h4><p>After publishing this post I realised I made a mistake.</p>
+<p>By default, hugo orders posts in descending order, but it has to know that your <em>page</em> is
+actually a <strong>post</strong>.</p>
+<p>To do so, in the header of the post you add:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">---
+weight: 1
+title: ....
+</code></pre></div><p>since <code>weight = 1</code> is what you set in the <code>config.toml</code>.</p>
+<p><strong>Of course, you have to undo the addition of <code>.Reverse</code>.</strong></p>
+<h3 id="comments" class="headerLink"><a href="#comments" class="header-mark"></a>Comments</h3><p>The last thing that I wanted for a functional blog was <strong>having comments</strong>.</p>
 <p>I wasn&rsquo;t sold to Disquis, because in its dashboard I couldn&rsquo;t see the comments. Not sure if it is related to using a static
 website with hugo, or my free plan.</p>
 <p>I decided to use <a href="https://core.telegram.org/widgets/discussion" target="_blank" rel="noopener noreffer">Telegram</a>.
@@ -490,8 +501,7 @@ I have also a lot of ideas and things I like I want to share.</p>
 </span><span class="w">  </span><span class="nt">only</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span>- <span class="l">master</span><span class="w">
 </span></code></pre></div><p>Once you push a new commit, GitLab will launch a job that will create the blog and post it online.</p>
-<p>The building time is negligible with respect to the Jekyll version.</p>
-</div><footer>
+<p>The building time is negligible with respect to the Jekyll version.</p></div><footer>
                         <div class="post">
 
 
