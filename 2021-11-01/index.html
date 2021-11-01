@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>OpenACC | </title><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://free2dots.github.io/2021-11-01/2021-11-01-header.png"/>
+<meta name="twitter:title" content="OpenACC"/>
+<meta name="twitter:description" content=""/><meta name="twitter:creator" content="@GianfQED"/><meta name="Description" content="Connecting dots..."><meta property="og:title" content="OpenACC" />
+<meta property="og:description" content="On a daily basis you have a lot of inputs: you read and listen to things, you talk to people and gather information. You, I, consume a lot, both for work and for pleasure.
+Less often I, you?, take a pause and elaborate on what I&rsquo;ve learning.
+Here, I&rsquo;ll talk about my experience with a GPU Bootcamp co-organized by Nvidia." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://free2dots.github.io/2021-11-01/" /><meta property="og:image" content="https://free2dots.github.io/2021-11-01/2021-11-01-header.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-01T12:00:38&#43;02:00" />
+<meta property="article:modified_time" content="2021-11-01T12:00:38&#43;02:00" />
+
+<meta name="application-name" content="Free2Dots">
+<meta name="apple-mobile-web-app-title" content="Free2Dots"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://free2dots.github.io/2021-11-01/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/lib/prismjs/prism.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OpenACC",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/free2dots.github.io\/2021-11-01\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/free2dots.github.io\/2021-11-01\/2021-11-01-header.png",
+                            "width":  1378 ,
+                            "height":  536 
+                        }],"genre": "posts","keywords": "hugo","wordCount":  1376 ,
+        "url": "https:\/\/free2dots.github.io\/2021-11-01\/","datePublished": "2021-11-01T12:00:38+02:00","dateModified": "2021-11-01T12:00:38+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Free2Dots" class="header-logo logo-svg"><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>Free2Dots</a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/posts/"> ✍️ Posts </a>
+                        </li><li>
+                            <a class="menu-item" href="/projects/"> 🚧 Projects </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> 🏷️ Tags </a>
+                        </li><li>
+                            <a class="menu-item" href="/about/"> 🤦‍♂️ About me </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="Free2Dots" class="header-logo"><span class="header-title-pre"><i class='fas fa-pencil-alt fa-fw'></i></span>Free2Dots</a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/posts/" title="">✍️ Posts</a>
+                        </li><li>
+                            <a class="menu-item" href="/projects/" title="">🚧 Projects</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">🏷️ Tags</a>
+                        </li><li>
+                            <a class="menu-item" href="/about/" title="">🤦‍♂️ About me</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+<div class="container content-article page-toc theme-classic"><div class="toc" id="toc-auto">
+            <div class="toc-title">Contents</div>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div>
+
+    
+    
+    <article>
+    
+
+        <header class="header-post">
+
+            
+
+            
+            <div class="post-title">
+
+                    <div class="post-all-meta">
+                        <nav class="breadcrumbs">
+    <ol>
+        <li><a href="/">Home </a></li><li>OpenACC</li>
+    </ol>
+</nav>
+                        <h1 class="single-title flipInX">OpenACC</h1><div class="post-meta summary-post-meta"><span class="post-meta-date meta-item">
+                                <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-11-01">2021-11-01</time>
+                            </span><span class="post-meta-words meta-item">
+                                <span class="svg-icon icon-pencil"></span>1376 words
+                            </span>
+                            <span class="post-meta-reading meta-item">
+                                <span class="svg-icon icon-stopwatch"></span>7 minutes
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </header>
+
+        <div class="article-post toc-start">
+
+            <div class="content-block content-block-first content-block-position">
+
+                <div class="post single"><div class="image-theme-classic">
+                        <img src="https://free2dots.github.io/2021-11-01/2021-11-01-header.png" style="width: 100%">
+                    </div><div class="details toc" id="toc-static"  data-kept="">
+                        <div class="details-summary toc-title">
+                            <span>Contents</span>
+                        </div>
+                        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-bootcamp">The Bootcamp</a></li>
+    <li><a href="#the-serial">The serial</a></li>
+    <li><a href="#unified-memory-and-i-know-better-programmmer">Unified memory and I-know-better programmmer</a>
+      <ul>
+        <li><a href="#parallel-loop">Parallel loop</a></li>
+        <li><a href="#copy-in-and-out">(copy) In and out</a></li>
+        <li><a href="#conclusi-or-not">Conclusi&hellip; or not?</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-end">The End</a></li>
+  </ul>
+</nav></div>
+                    </div><p>On a daily basis you have a lot of inputs: you read and listen to things, you talk to people and gather information. You, I, consume a lot, both for work and for pleasure.</p>
+<p>Less often I, you?, take a pause and elaborate on what I&rsquo;ve learning.</p>
+<p>Here, I&rsquo;ll talk about my experience with a GPU Bootcamp co-organized by Nvidia.</p>
+<h2 id="the-bootcamp" class="headerLink"><a href="#the-bootcamp" class="header-mark"></a>The Bootcamp</h2><p>This <a href="https://gpuhackathons.org/index.php/event/hr-hpc-cc-nways-gpu-programming-bootcamp" target="_blank" rel="noopener noreffer">bootcamp</a> was organized by the Croatian HPC center and Nvidia on October 28-29, 2021.
+The format was interesting. In the first morning the speakers provided a preview of OpenMP, OpenACC and CUDA and the students had access to jupyter notebooks to dig deeper in the concepts at their own pace. Interestingly, we were divided into groups based on the programming language of choice to interact with <em>colleagues</em> and brainstorm.</p>
+<p>The second morning had the best part: a challenge. We received a serial code and in the 3 hours we had to improve its performances.
+It was <em>guided</em>: it was <strong>obvious what</strong> part of the code you should focus on, but <strong>not how</strong> to do it.</p>
+<p>This part is what I enjoyed the most: discussing with peers on what to do, without restraints.</p>
+<p>I&rsquo;ll post here some notes on what we did. It is not a course on OpenACC, OpenMP or something similar. I have decent experience with OpenMP, but it was my first time with OpenACC. I used the translation <code>!$omp</code> into <code>!$acc</code> as a rule of thumb. I assumed, as working hypothesis, that they are quite similar.</p>
+<p>Follow me in this journey!</p>
+<p><strong>Spoiler alert</strong>
+
+<p style="text-align: center;">
+  <img style="width:95%" src="spoiler.png" alt="">
+</p>
+</p>
+<h2 id="the-serial" class="headerLink"><a href="#the-serial" class="header-mark"></a>The serial</h2><p>The code is a miniapp that performs computational fluid dynamics.</p>
+<p>Without going in all the details, the code has the main code in <code>cfd.f90</code> and the routine to perform the step in <code>jacobi.f90</code>. And the makefile, of course.
+You can imagine the code as the following:</p>
+<ol>
+<li>initialization;</li>
+<li>iterations: compute new array from previos iteration, check error, switch the old array with the new computed one;</li>
+<li>finalization.</li>
+</ol>
+<p>Let&rsquo;s see how it behaves.
+Compiled and run:</p>
+<blockquote>
+<p>elapsed time for 500 iterations was   <strong>3.717</strong>     seconds</p>
+</blockquote>
+<p>First, we run the code and profile it with <strong>nsys</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nsys profile -t nvtx --stats<span class="o">=</span><span class="nb">true</span> --force-overwrite <span class="nb">true</span> -o minicfd_serial_profile ./cfd <span class="m">64</span> <span class="m">500</span>
+</code></pre></div><p>The interesting part of the output is in this table:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Time(%)  Total Time (ns)  Instances      Average             Range
+  -------  ---------------  ---------  ---------------   -----------------
+    50.0    3,717,320,116          1  3,717,320,116.0   Overall Iteration
+    31.6    2,347,212,749        500      4,694,425.5   Jacobi Step
+    18.3    1,360,728,005        500      2,721,456.0   Switch Array
+     0.1        5,152,763        500         10,305.5   Calculate Error
+     0.1        4,892,991          1      4,892,991.0   Initialization
+     0.0            8,902          1          8,902.0   boundaryPSI
+</code></pre></div><p>and here how it looks on the profiler:
+
+<p style="text-align: center;">
+  <img style="width:95%" src="detail_serial.png" alt="">
+</p>
+</p>
+<p>The obvious place to start is the Jacobi step:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fortran" data-lang="fortran"><span class="k">subroutine </span><span class="n">jacobistep</span><span class="p">(</span><span class="n">psinew</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+  <span class="kt">double precision</span><span class="p">,</span> <span class="k">dimension</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="kd">::</span> <span class="n">psinew</span><span class="p">,</span> <span class="n">psi</span>
+ 
+  <span class="n">psinew</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.25d0</span><span class="o">*</span><span class="p">(</span><span class="n">psi</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">psi</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="p">&amp;</span>
+                             <span class="n">psi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">psi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>     <span class="p">)</span>
+ 
+ <span class="k">end subroutine </span><span class="n">jacobistep</span>
+</code></pre></div><h2 id="unified-memory-and-i-know-better-programmmer" class="headerLink"><a href="#unified-memory-and-i-know-better-programmmer" class="header-mark"></a>Unified memory and I-know-better programmmer</h2><p>In general CPU and GPU have their own memory. Data are stored on the CPU and, if using OpenMP,
+the programmer has to declare what variables should be allocated also on the device.</p>
+<p>These data movements might slow down the execution of the code, if the GPU has to wait the host, CPU, and viceversa.</p>
+<p>To help you deal with data movement, Nvidia (and now Apple? 🤔) makes CPU and GPU see the same memory addresses.
+In this case what you need to do is just to add the compiler option <code>-ta=tesla:managed</code>.</p>
+<h3 id="parallel-loop" class="headerLink"><a href="#parallel-loop" class="header-mark"></a>Parallel loop</h3><p>To use OpenACC, we need to rewrite the update with two do-loops and we can add the <code>!$acc</code>
+directives.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fortran" data-lang="fortran"><span class="k">subroutine </span><span class="n">jacobistep_acc</span><span class="p">(</span><span class="n">psinew</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+  <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+  <span class="kt">double precision</span><span class="p">,</span> <span class="k">dimension</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="kd">::</span> <span class="n">psinew</span><span class="p">,</span> <span class="n">psi</span>
+ 
+  <span class="c">!$acc parallel loop
+</span><span class="c"></span>  <span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+  <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+  <span class="n">psinew</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.25d0</span><span class="o">*</span><span class="p">(</span><span class="n">psi</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">psi</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="p">&amp;</span>
+                             <span class="n">psi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">psi</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>     <span class="p">)</span>
+  <span class="c">!$acc end parallel
+</span><span class="c"></span> <span class="k">end subroutine </span><span class="n">jacobistep_acc</span>
+</code></pre></div><p>We add also the instruction <code>-Minfo=accel -acc -ta=tesla:managed</code> to the Makefile:</p>
+<ul>
+<li><code>Minfo=accel</code>, to generate information on optimization for the available accelerator;</li>
+<li><code>-acc</code>, to enable the OpenAcc directives;</li>
+<li><code>-ta=tesla:managed</code>, to tell the compiler the GPU architecture and whether to use the Unified Memory.</li>
+</ul>
+<p>We compile and run with</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">nsys profile -t nvtx,openacc,cuda --stats=true --force-overwrite true -o minicfdopenacc_profile ./cfd 64 500
+</code></pre></div><p>Now</p>
+<blockquote>
+<p>the elapsed time is 9.467 seconds (Ouch!)
+and a summary from the profiling:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Time(%)  Total Time (ns)  Instances      Average             Range
+ -------  ---------------  ---------  ---------------   -----------------
+    50.0    9,466,895,513          1  9,466,895,513.0   Overall Iteration
+    33.6    6,356,675,349        500     12,713,350.7   Switch Array
+    16.3    3,090,186,769        500      6,180,373.5   Jacobi Step
+     0.1       13,560,264        500         27,120.5   Calculate Error
+     0.0        9,113,720          1      9,113,720.0   Initialization
+     0.0            8,521          1          8,521.0   boundaryPSI
+</code></pre></div><p>Let&rsquo;s have a look at the graphical version of the profiler.
+
+<p style="text-align: center;">
+  <img style="width:95%" src="managed_step.png" alt="image of profile">
+</p>
+</p>
+<p>On top we see the GPU working in light blue/cyan. But there isn&rsquo;t a continous line. We can see a pattern, each time
+we are calling the <code>jacobistep_acc</code>. In principle we would like a <em>continous</em> cyan line, i.e. a GPU always working. The limiting factor, though,
+is the extensive communication between host (CPU) and device (GPU).
+A closer look at the Jacobi step, show that data are transferred to the Device during the computation. At the end of the step the data are moved
+back to the host. For all the 500 iterations.</p>
+<p>
+<p style="text-align: center;">
+  <img style="width:95%" src="detail_step.png" alt="image of profile">
+</p>
+</p>
+<h3 id="copy-in-and-out" class="headerLink"><a href="#copy-in-and-out" class="header-mark"></a>(copy) In and out</h3><p>At this point, during the bootcamp, we thought:</p>
+<blockquote>
+<p>We know better. We can tell the compiler when and what data we need!</p>
+</blockquote>
+<p>We can use <code>!$acc data copy(psi(0:m+1, 0:n+1)) create(psi_tmp(0:n+1, 0:m+1))</code> and the closing directive <code>!$acc end data</code> to define a data region
+in which <code>call jacobistep_acc(...)</code> occurs.</p>
+<p>We need to remove the <code>managed</code> option from the compiler flags, since <strong>we-know-better</strong>.</p>
+<p>At this point the code is basically the same as the previous iteration. To improve the data management, we can then put the <em>data region</em>
+outside the main loop (defined in step 2.). We need to check where the arrays <code>psi</code> and <code>psitmp</code> are used: in computing the error with a function called <code>deltasq</code>; in switching the new array with old one.</p>
+<p>The error function and the switching can be rewritten as two do-loops, since both were using the vectorized syntax, and we can use the directives seen for the Jacobi step.
+As a good measure we use the clause <code>collapse(2)</code> in the <code>!$acc parallel loop</code> directive to merge the double loop.</p>
+<p>Let&rsquo;s run it:</p>
+<blockquote>
+<p>elapsed time for 500 iterations was 0.3524 seconds.</p>
+</blockquote>
+<p>
+<p style="text-align: center;">
+  <img style="width:95%" src="nice.gif" alt="">
+</p>
+</p>
+<p>The profiler tells us something interesting.
+
+<p style="text-align: center;">
+  <img style="width:95%" src="our_solution.png" alt="">
+</p>
+
+Most of the GPU time is spent in the kernels, i.e. in the computation we asked it to accelerate. The data movements occur only at the beginning, green lines, with host to device communications, and at the end of the iterations, from the device to the host.</p>
+<p>A zoom in the cyan region shows the pattern we had before, but now, there is no bottleneck in the exchange of the data.</p>
+<p>And this conclude what I learned during the bootcamp.
+There are other few things, like the <code>!$acc routine</code>, but I haven&rsquo;t explored yet.</p>
+<h3 id="conclusi-or-not" class="headerLink"><a href="#conclusi-or-not" class="header-mark"></a>Conclusi&hellip; or not?</h3><p>Writing this post I had a question.
+<strong>What if</strong> I use the <code>managed</code> memory approach also in the <em>Switch array</em>?</p>
+<p>So, I just used the previously defined <code>jacobistep_acc</code>, the explicit loop for the switch, surrounded by the <strong>parallel loop</strong> region, as shown here:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fortran" data-lang="fortran">    <span class="k">call </span><span class="n">nvtxStartRange</span><span class="p">(</span><span class="s2">&#34;Switch Array&#34;</span><span class="p">)</span>
+
+    <span class="c">!$acc parallel loop
+</span><span class="c"></span>    <span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+    <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+    <span class="n">psi</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">psitmp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="k">end do
+</span><span class="k">    end do</span>
+    <span class="c">!$acc end parallel
+</span></code></pre></div><p>Nothing more. No data region, no other check whether an array is used or not. (We had <em>some</em> bugs before reaching the 0.35 seconds 😅)</p>
+<p>This approach is too simple. It will work, but it will not be great&hellip;</p>
+<blockquote>
+<p>Elapsed time for 500 iterations was 0.1584 seconds.</p>
+</blockquote>
+<p>
+<p style="text-align: center;">
+  <img style="width:95%" src="thebest.png" alt="">
+</p>
+</p>
+<p>So, with the unified memory approach that can be exploited with OpenACC, you can obtain significant improvement in performances.</p>
+<p>With the custom <strong>data management</strong>, we gained a <strong>factor 10</strong> (3.717/0.352) in speedup.
+With the <strong>unified memory</strong>, and fewer lines of code we got a <strong>factor of 23</strong>!!!!!!</p>
+<p>
+<p style="text-align: center;">
+  <img style="width:95%" src="happy.gif" alt="">
+</p>
+</p>
+<h2 id="the-end" class="headerLink"><a href="#the-end" class="header-mark"></a>The End</h2><p>The experience has been super nice. I learned a lot from my teammates. It is enough to be an expert, but it is sufficient to start my journey in the OpenACC world.</p>
+<p>Usually people don&rsquo;t need a step-by-step guide for all the journey, but indications at the beginning of their path. They will not get lost or discouraged while inexperienced; <strong>later</strong> they&rsquo;ll figure things out on their own.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">#tantecarecose
+</code></pre></div></div><footer>
+                        <div class="post">
+
+
+<div class="post-share"><div class="share-link">
+        <a class="share-icon share-twitter" href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://free2dots.github.io/2021-11-01/" data-title="OpenACC" data-via="GianfQED" data-hashtags="hugo"><span class="svg-social-icon icon-twitter"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-facebook" href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://free2dots.github.io/2021-11-01/" data-hashtag="hugo"><span class="svg-social-icon icon-facebook"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-linkedin" href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://free2dots.github.io/2021-11-01/"><span class="svg-social-icon icon-linkedin"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-reddit" href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://free2dots.github.io/2021-11-01/"><span class="svg-social-icon icon-reddit"></span></a>
+    </div></div>
+
+
+
+
+
+
+<div class="post-tags"><a href="/tags/hugo/" class="tag">hugo</a></div></div>
+                </footer></div>
+
+        <div id="toc-final"></div>
+        </div>
+
+    
+    </article>
+    <section class="page single comments content-block-position">
+        <h1 class="display-hidden">Комментарии</h1><div id="comments"><div id="telegram-comments" class="comment"></div><script src="https://comments.app/js/widget.js?3"  data-comments-app-website="FgNBOjuR" data-limit="5" data-colorful="1"></script>
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://comments.app/">Telegram Comments</a>.
+            </noscript></div></section></div>
+
+</main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://free2dots.github.io&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/prismjs/prism.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/auto-render.min.js"></script><script src="/lib/katex/copy-tex.min.js"></script><script src="/lib/katex/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script src="/js/theme.min.js"></script><script>
+                window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+                gtag('config', 'G-PPLKH2WEK1', { 'anonymize_ip': true });
+            </script><script src="https://www.googletagmanager.com/gtag/js?id=G-PPLKH2WEK1" async></script></body>
+</html>
