@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>programming - Tag - Free2Dots</title>
+        <link>https://free2dots.github.io/tags/programming/</link>
+        <description>programming - Tag - Free2Dots</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Nov 2021 12:00:38 &#43;0200</lastBuildDate><atom:link href="https://free2dots.github.io/tags/programming/" rel="self" type="application/rss+xml" /><item>
+    <title>Programming with GPUs</title>
+    <link>https://free2dots.github.io/2021-11-01/</link>
+    <pubDate>Mon, 01 Nov 2021 12:00:38 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://free2dots.github.io/2021-11-01/</guid>
+    <description><![CDATA[<p>On a daily basis you have a lot of inputs: you read and listen to things, you talk to people and gather information. You, I, consume a lot, both for work and for pleasure.</p>
+<p>Less often I, you?, take a pause and elaborate on what I&rsquo;ve learning.</p>
+<p>Here, I&rsquo;ll talk about my experience with a GPU Bootcamp co-organized by Nvidia.</p>]]></description>
+</item></channel>
+</rss>
